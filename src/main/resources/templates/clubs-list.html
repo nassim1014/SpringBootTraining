@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club List</title>
-    <link rel="stylesheet" th:href="@{/static/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
     <div class="container">
         <h1>Club List</h1>
+        
+        <!-- Check if the list is empty -->
+        <div th:if="${listIsEmpty}">
+            <p>No clubs found. Please check back later or add a new club.</p>
+        </div>
+        
+        <!-- Only show this if the list is not empty -->
+        <div th:unless="${listIsEmpty}" id="club-list">
+            <div th:each="club : ${clubs}" class="club-card">
+                <h2 th:text="${club.id}">Club id</h2>
+                <p th:text="${club.title}">Club title</p>
+                <p class="created-date" th:text="'Created on: ' + ${#temporals.format(club.createdOn, 'dd-MM-yyyy')}">Created Date</p>
+            </div>
+        </div>
     </div>
-    <script th:src="@{/static/js/script.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
 </body>
 </html>

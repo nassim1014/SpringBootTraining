@@ -24,6 +24,7 @@ public class ClubController {
     public String ListClubs(Model model) {
         List<ClubDto> clubs = clubService.findAllClubs();
         model.addAttribute("clubs",clubs);
+        model.addAttribute("listIsEmpty", clubs.isEmpty());
         return "clubs-list";
     }
 
