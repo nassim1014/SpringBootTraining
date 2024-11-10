@@ -26,5 +26,11 @@ public class ClubController {
         model.addAttribute("clubs",clubs);
         return "clubs-list";
     }
+
+    @GetMapping("/")
+    public String welcome() {
+        return "welcome";
+    }
+
     
 }
