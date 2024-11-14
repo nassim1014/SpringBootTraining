@@ -14,9 +14,10 @@ import com.rungroup.web.service.ClubService;
 @Service
 public class ClubServiceImpl implements ClubService{
     @Autowired private ClubRepository clubRepository;
-    public ClubServiceImpl(ClubRepository ClubRepository) {
+    
+/*    public ClubServiceImpl(ClubRepository ClubRepository) {
         this.clubRepository = clubRepository;
-    }
+    }*/
     @Override
     public List<ClubDto> findAllClubs() {
         List<Club> clubs = clubRepository.findAll();
